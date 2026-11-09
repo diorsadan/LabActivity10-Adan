@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class PostFactory extends Factory
 {
+    // default is a published post
     public function definition(): array
     {
         return [
@@ -23,6 +24,7 @@ class PostFactory extends Factory
         ];
     }
 
+    // state for drafts, use Post::factory()->draft()
     public function draft(): static
     {
         return $this->state(fn (array $attributes) => [

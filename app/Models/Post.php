@@ -10,6 +10,7 @@ class Post extends Model
     /** @use HasFactory<\Database\Factories\PostFactory> */
     use HasFactory;
 
+    // without this create() throws MassAssignmentException
     protected $fillable = [
         'author_id',
         'title',
@@ -21,6 +22,8 @@ class Post extends Model
         'views',
     ];
 
+    // sqlite saves booleans as 0/1, casts turn them into true/false
+    // published_at becomes a date so we can use ->format() in the views
     protected $casts = [
         'is_published' => 'boolean',
         'is_pinned' => 'boolean',

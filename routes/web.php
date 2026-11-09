@@ -3,6 +3,7 @@
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
+// home page goes straight to the posts list
 Route::redirect('/', '/posts');
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');

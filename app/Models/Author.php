@@ -10,6 +10,7 @@ class Author extends Model
     /** @use HasFactory<\Database\Factories\AuthorFactory> */
     use HasFactory;
 
+    // columns allowed in Author::create()
     protected $fillable = [
         'name',
         'position',

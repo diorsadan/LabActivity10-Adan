@@ -15,6 +15,7 @@
             {{ $post->published_at->format('M d, Y') }} · {{ $post->views }} views
         </p>
 
+        {{-- {{ }} escapes html so no xss --}}
         <p class="mt-4 whitespace-pre-line">{{ $post->body }}</p>
 
         <a href="{{ route('posts.index') }}" class="inline-block mt-6 text-blue-700 hover:underline">← Back to posts</a>

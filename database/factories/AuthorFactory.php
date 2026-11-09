@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class AuthorFactory extends Factory
 {
+    // fake authors made with Faker
     public function definition(): array
     {
         return [

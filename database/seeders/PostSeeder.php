@@ -12,17 +12,21 @@ class PostSeeder extends Seeder
     {
         $authors = Author::all();
 
+        // 40 published posts, sequence picks one of the existing authors
+        // so the factory doesn't make a new author for every post
         Post::factory()
             ->count(40)
             ->sequence(fn ($seq) => ['author_id' => $authors->random()->id])
             ->create();
 
+        // 10 drafts
         Post::factory()
             ->count(10)
             ->draft()
             ->sequence(fn ($seq) => ['author_id' => $authors->random()->id])
             ->create();
 
+        // my pinned birthday post
         $kagawad = Author::where('email', 'kagawad.adan@bulletin.test')->first();
 
         Post::create([
